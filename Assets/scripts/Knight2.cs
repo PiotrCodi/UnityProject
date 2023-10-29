@@ -36,6 +36,7 @@ public class Knight2 : MonoBehaviour
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+
         
 
 
