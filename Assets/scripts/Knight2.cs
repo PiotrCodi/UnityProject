@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Knight2 : MonoBehaviour
 {
-    float z = (float)-3.9798;
+    static public float z = (float)-3.9798;
     static public int column = 3;
     static public int row = 3;
     static public int column2 = 1;

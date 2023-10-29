@@ -7,6 +7,7 @@ public class HealthBar : MonoBehaviour
 {
     public Slider slider;
     public GameObject healthBar;
+    float z = Knight2.z;
 
     public void SetMaxHealth(int health)
     {
@@ -16,5 +17,12 @@ public class HealthBar : MonoBehaviour
     public void SetHealth(int health)
     {
         slider.value = health;
+    }
+    private void Update()
+    {
+        Vector3 newPosition = transform.position;
+        newPosition.z = z;
+        transform.position = newPosition;
+        Debug.Log(z);
     }
 }

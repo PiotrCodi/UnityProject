@@ -116,41 +116,23 @@ public class Movement : MonoBehaviour
 
         while (rowTemporary != rowStart || columnTemporary != columnStart)
         {
-            string currentPosition = "";
 
             if (rowTemporary < rowStart)
             {
-                currentPosition = "P" + rowTemporary + columnTemporary;
-
                 rowTemporary++;
                 rycerz2 = rycerz2 + 3;
                 howManyMoves++;
             }
             else if (rowTemporary > rowStart)
             {
-
-                currentPosition = "P" + rowTemporary + columnTemporary;
                 rowTemporary--;
                 rycerz2 = rycerz2 + 2;
 
                 howManyMoves++;
             }
-            if (dictionaryTypes.ContainsKey(currentPosition))
-            {
-                Type type = dictionaryTypes[currentPosition];
-                object obiekt = FindObjectOfType(type);
-
-
-                Pole colorOfObject = (Pole)obiekt;
-                colorOfObject.Kolor();
-            }
-
-
-            string currentPosition2 = "";
 
             if (columnTemporary < columnStart)
             {
-                currentPosition2 = "P" + rowTemporary + columnTemporary;
                 columnTemporary++;
                 rycerz2 = rycerz2 + 1;
 
@@ -158,24 +140,10 @@ public class Movement : MonoBehaviour
             }
             else if (columnTemporary > columnStart)
             {
-                currentPosition2 = "P" + rowTemporary + columnTemporary;
-
                 columnTemporary--;
                 rycerz2 = rycerz2 + 4;
 
                 howManyMoves++;
-            }
-
-
-            if (dictionaryTypes.ContainsKey(currentPosition2))
-            {
-                Type type = dictionaryTypes[currentPosition2];
-
-                object obiekt = FindObjectOfType(type);
-
-                Pole colorOfObject = (Pole)obiekt;
-                colorOfObject.Kolor();
-
             }
 
         }

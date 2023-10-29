@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Knight1 : MonoBehaviour
 {
+    public HealthBar healthBar;
     float z = -4;
     static public int column = 1;
     static public int row = 1;
@@ -22,6 +23,8 @@ public class Knight1 : MonoBehaviour
     public new Collider2D collider;
     int id = 1;
     public static string tablica="";
+    public int maxHealth = 30;
+    public int currentHealth;
 
 
     void Start()
@@ -30,6 +33,8 @@ public class Knight1 : MonoBehaviour
         collider.enabled = true;
 
         animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
 
     }
 
