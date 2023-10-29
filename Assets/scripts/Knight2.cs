@@ -12,6 +12,10 @@ public class Knight2 : MonoBehaviour
     private bool move = false;
     private Animator animator;
     public static bool start = false;
+    public int maxHealth = 30;
+    public int currentHealth;
+
+    public HealthBar healthBar;
 
     public float distanceToMove = 0.5f;
     public float timeMove = 2.0f;
@@ -29,11 +33,25 @@ public class Knight2 : MonoBehaviour
         collider.enabled = true;
 
         animator = GetComponent<Animator>();
-    }
 
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+        
+
+
+    }
+    void TakeDmg(int dmg)
+    {
+        currentHealth -= dmg;
+        healthBar.SetHealth(currentHealth); 
+    }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDmg(5);
+        }
         if (move)
         {
 
