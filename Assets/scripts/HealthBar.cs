@@ -18,11 +18,12 @@ public class HealthBar : MonoBehaviour
     {
         slider.value = health;
     }
+
+
     private void Update()
-    {
+    { 
         Vector3 newPosition = transform.position;
-        newPosition.z = z;
+        newPosition.z = Knight2.z;
         transform.position = newPosition;
-        Debug.Log(z);
     }
 }

@@ -944,6 +944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 351860435}
   healthBar: {fileID: 351860432}
+  canvas: {fileID: 1838019453}
 --- !u!114 &351860435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3753,6 +3754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 2004475913}
   healthBar: {fileID: 2004475910}
+  canvas: {fileID: 0}
 --- !u!114 &2004475913
 MonoBehaviour:
   m_ObjectHideFlags: 0

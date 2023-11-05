@@ -31,63 +31,46 @@ public class Knight1 : MonoBehaviour
     {
         collider = GetComponent<Collider2D>();
         collider.enabled = true;
-
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-
     }
-
 
     void Update()
     {
         if (move)
         {
-
             float elapsedTime = Time.time - startTime;
             float journeyFraction = elapsedTime / timeMove;
             transform.position = Vector3.Lerp(startPosition, destination, journeyFraction);
-
-
         }
         Vector3 newPosition = transform.position;
         newPosition.z = z; 
         transform.position = newPosition;
-
     }
     public void ColliderOff()
     {
         collider.enabled = false;
-
     }
     public void ColliderOn()
     {
         collider.enabled = true;
-
     }
     private void OnMouseDown()
     {
         blockade = false;
-
         FindObjectOfType<Movement>().Range(id, column, row);
-
-
     }
 
    public  IEnumerator Movement()
     {
-      //  animator.SetTrigger("Idle2");
-
         for (int i = 0; i < howManyMoves; i++)
         {
 
             if (tablica[i] == '1')
             {
-
-                //animator.SetTrigger("Idle");
                 //    Debug.Log("Up");
                 z = (float)(z + 0.01);
-              //  animator.SetTrigger("Idle2");
                 animator.SetTrigger("StartWalk1");
                 move = true;
                 startPosition = transform.position;
@@ -96,19 +79,11 @@ public class Knight1 : MonoBehaviour
                 yield return new WaitForSeconds(1.49f);
                 move = false;
                 animator.SetTrigger("Idle2");
-             //   animator.SetTrigger("Idle1");
-
-                //    animator.SetTrigger("Idle1");
-                //  animator.SetTrigger("Idle3");
-
             }
             else if (tablica[i] == '2')
             {
-
-                //  animator.SetTrigger("Idle");
                 z = (float)(z - 0.0001);
                 //    Debug.Log("Right");
-               // animator.SetTrigger("Idle2");
                 animator.SetTrigger("StartWalk2");
                 move = true;
                 startPosition = transform.position;
@@ -117,16 +92,11 @@ public class Knight1 : MonoBehaviour
                 yield return new WaitForSeconds(1.49f);
                 move = false;
                 animator.SetTrigger("Idle2");
-               // animator.SetTrigger("Idle22");
-
-
             }
             else if (tablica[i] == '3')
             {
-
                 z = (float)(z + 0.0001);
                 //   Debug.Log("Left");
-                //   animator.SetTrigger("Idle2");
                 animator.SetTrigger("StarWalk3");
                 Debug.Log("lewo");
                 move = true;
@@ -136,16 +106,11 @@ public class Knight1 : MonoBehaviour
                 yield return new WaitForSeconds(1.49f);
                 move = false;
                 animator.SetTrigger("Idle2");
-              // animator.SetTrigger("Idle1");
-
-                //   animator.SetTrigger("Idle3");
             }
             else if (tablica[i] == '4')
             {
                 z = (float)(z - 0.01);
-                //  animator.SetTrigger("Idle");
                 //Debug.Log("Down");
-              //  animator.SetTrigger("Idle2");
                 animator.SetTrigger("StartWalk4");
                 move = true;
 
@@ -155,28 +120,9 @@ public class Knight1 : MonoBehaviour
                 yield return new WaitForSeconds(1.49f);
                 move = false;
                 animator.SetTrigger("Idle2");
-            //     animator.SetTrigger("Idle4");
             }
-            /*
-            if (tablica[howManyMoves-1]=='1')
-                animator.SetTrigger("Idle1");
-
-            if (tablica[howManyMoves - 1] == '2')
-                animator.SetTrigger("Idle22");
-
-            if (tablica[howManyMoves - 1] == '3')
-                animator.SetTrigger("Idle22");
-
-            if (tablica[howManyMoves - 1] == '4')
-                animator.SetTrigger("Idle4");
-            */
         }
         blockade = true;
-
-
         howManyMoves = 0;
-
     }
-
-
 }

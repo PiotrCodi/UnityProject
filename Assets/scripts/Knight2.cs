@@ -36,8 +36,10 @@ public class Knight2 : MonoBehaviour
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        healthBar.healthBar.SetActive(false);
 
-        
+
+
 
 
     }
@@ -45,10 +47,23 @@ public class Knight2 : MonoBehaviour
     {
         currentHealth -= dmg;
         healthBar.SetHealth(currentHealth); 
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.K))
+        {
+            healthBar.healthBar.SetActive(true);
+
+        }
+        else
+        {
+            healthBar.healthBar.SetActive(false);
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDmg(5);

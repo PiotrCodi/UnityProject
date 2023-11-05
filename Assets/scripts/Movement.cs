@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
     int columnTemporary;
     int rowTemporary;
     string rycerz2;
+    int k = 3;
 
     void Update()
     {
@@ -41,21 +42,14 @@ public class Movement : MonoBehaviour
         id = id2;
         columnTemporary = column;
         rowTemporary = row;
-        Debug.Log("xd");
         start = true;
 
         klasaZDictionary = FindObjectOfType<DictionaryC>();
 
         Dictionary<string, Type> dictionaryTypes = klasaZDictionary.getDictionaryTypes();
-        /*
-        string testt = "Knight1";
-
-        FindObjectOfType<testt>().ColliderOff();
-        */
         pomcol = column;
         pomrow = row;
-        for (int k = 0; k < 2; k++)
-        {
+       
             for (int i = -1 - k; i < 2 + k; i++)
             {
                 pomrow = row;
@@ -78,16 +72,14 @@ public class Movement : MonoBehaviour
 
                 }
 
-            }
-        }
+            }       
     }
 
     public void Move( int columnStart, int rowStart)
     {
         Dictionary<string, Type> dictionaryTypes = klasaZDictionary.getDictionaryTypes();
 
-        for (int k = 0; k < 2; k++)
-        {
+
             for (int i = -1 - k; i < 2 + k; i++)
             {
                 pomrow = rowTemporary;
@@ -112,7 +104,7 @@ public class Movement : MonoBehaviour
 
 
             }
-        }
+        
 
         while (rowTemporary != rowStart || columnTemporary != columnStart)
         {
